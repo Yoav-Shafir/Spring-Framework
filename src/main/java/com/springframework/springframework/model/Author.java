@@ -14,22 +14,17 @@ public class Author {
     private String firstName;
     private String lastName;
 
+    // mappedBy tells Hibernate which side of the relationship "owns" the link.
+    // When it comes to ManyToMany, there is a join table, so neither directly has the link to the other object.
+    // However, hibernate still needs to know which is the "owning" side.
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
-    public Author() {
-
-    }
+    public Author() {}
 
     public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public Author(String firstName, String lastName, Set<Book> books) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.books = books;
     }
 
     public Long getId() {
