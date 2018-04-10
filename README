@@ -1,0 +1,21 @@
+Injection Types
+---------------
+Field
+Setters
+Constructor - preferred
+
+Handling Multiple Bean Problem
+-------------------------------
+Specifying arg as the Bean name
+Using @Primary
+Using @Qualifier
+Using @Profile
+
+@Autowired alternatives
+-----------------------
+@Resource
+@Inject (?)
+
+Configuration Class
+-------------------
+Good for creating third party classes to Injectable Beans.
