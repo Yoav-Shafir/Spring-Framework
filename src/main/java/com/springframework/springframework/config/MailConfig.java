@@ -1,8 +1,5 @@
 package com.springframework.springframework.config;
 
-import com.springframework.springframework.features.mail.MailSender;
-import com.springframework.springframework.features.mail.MockMailSender;
-import com.springframework.springframework.features.mail.SmtpMailSender;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

@@ -1,11 +1,11 @@
-package com.springframework.springframework.features.mail;
+package com.springframework.springframework.features;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 
 // By default the name of this Bean in the Application Context will be
-// the name of the class in camel case - `smtpMailSender`.\
+// the name of the class in camel case - `smtpMailSender`.
 // We can change this by specifying a custom name for example `smtp`.
 // @Component("smtp")
 

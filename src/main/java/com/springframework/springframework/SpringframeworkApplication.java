@@ -9,6 +9,7 @@ import com.springframework.springframework.thirdparty.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 // By default Spring scans for Components from the current location
 // to all child packages.
@@ -16,6 +17,7 @@ import org.springframework.context.ApplicationContext;
 // we can do something like this:
 // @SpringBootApplication(scanBasePackageClasses = {SpringframeworkApplication.class, SomeOtherClass.class})
 @SpringBootApplication
+@EnableJpaAuditing
 public class SpringframeworkApplication {
 
 	public static void main(String[] args) {

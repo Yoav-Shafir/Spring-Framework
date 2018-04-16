@@ -1,0 +1,28 @@
+# This script will run only when the `dev` profile is active.
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/springframework_dev
+    username: root
+    password: password
+    platform: mysql
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    show-sql: true
+
+    # This section will generate a schema generation script in the root project
+    # based on our Entities.
+    # We then can copy the generated script and run it inside MySQL console.
+    # One problem is that the script doesn't add semicolon at the end of each statement,
+    # so we have to do it manually.
+
+#   properties:
+#      javax:
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              action: create
+#              create-target: script.sql

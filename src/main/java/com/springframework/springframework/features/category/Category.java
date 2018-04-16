@@ -1,6 +1,6 @@
-package com.springframework.springframework.features.mail.category;
+package com.springframework.springframework.features.category;
 
-import com.springframework.springframework.features.mail.recipe.Recipe;
+import com.springframework.springframework.features.recipe.Recipe;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,24 +18,27 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
 
+    public Category() {
+    }
+
     public Long getId() {
-        return id;
+        return this.id;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public Set<Recipe> getRecipes() {
+        return this.recipes;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Set<Recipe> getRecipes() {
-        return recipes;
     }
 
     public void setRecipes(Set<Recipe> recipes) {

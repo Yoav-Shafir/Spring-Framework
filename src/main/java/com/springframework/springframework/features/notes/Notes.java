@@ -1,6 +1,6 @@
-package com.springframework.springframework.features.mail.notes;
+package com.springframework.springframework.features.notes;
 
-import com.springframework.springframework.features.mail.recipe.Recipe;
+import com.springframework.springframework.features.recipe.Recipe;
 
 import javax.persistence.*;
 
@@ -8,7 +8,6 @@ import javax.persistence.*;
 public class Notes {
 
     @Id
-
     // Will auto generate ids in a sequence - fit for MySQL.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

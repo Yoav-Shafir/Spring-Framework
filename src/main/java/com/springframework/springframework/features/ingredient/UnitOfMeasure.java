@@ -1,4 +1,4 @@
-package com.springframework.springframework.features.mail.ingredient;
+package com.springframework.springframework.features.ingredient;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class UnitOfMeasure {
 
     @Id
-
     // Will auto generate ids in a sequence - fit for MySQL.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

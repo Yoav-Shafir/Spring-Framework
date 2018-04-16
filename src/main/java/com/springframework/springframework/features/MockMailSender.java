@@ -1,4 +1,4 @@
-package com.springframework.springframework.features.mail;
+package com.springframework.springframework.features;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

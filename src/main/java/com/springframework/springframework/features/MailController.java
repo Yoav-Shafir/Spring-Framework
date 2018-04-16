@@ -1,4 +1,4 @@
-package com.springframework.springframework.features.mail;
+package com.springframework.springframework.features;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

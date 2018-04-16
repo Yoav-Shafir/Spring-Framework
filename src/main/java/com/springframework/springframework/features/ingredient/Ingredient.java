@@ -1,6 +1,6 @@
-package com.springframework.springframework.features.mail.ingredient;
+package com.springframework.springframework.features.ingredient;
 
-import com.springframework.springframework.features.mail.recipe.Recipe;
+import com.springframework.springframework.features.recipe.Recipe;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 public class Ingredient {
 
     @Id
-
     // Will auto generate ids in a sequence - fit for MySQL.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +23,21 @@ public class Ingredient {
     // we don't want it's Recipe to be deleted as well.
     @ManyToOne
     private Recipe recipe;
+
+    public Ingredient() {}
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+    }
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+        this.recipe = recipe;
+    }
 
     public Long getId() {
         return id;

@@ -1,10 +1,11 @@
-package com.springframework.springframework.features.mail.recipe;
+package com.springframework.springframework.features.recipe;
 
-import com.springframework.springframework.features.mail.category.Category;
-import com.springframework.springframework.features.mail.ingredient.Ingredient;
-import com.springframework.springframework.features.mail.notes.Notes;
+import com.springframework.springframework.features.category.Category;
+import com.springframework.springframework.features.ingredient.Ingredient;
+import com.springframework.springframework.features.notes.Notes;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,6 +23,8 @@ public class Recipe {
     private Integer  servings;
     private String source;
     private String url;
+
+    @Lob
     private String directions;
 
     @Enumerated(value = EnumType.STRING)
@@ -31,7 +34,7 @@ public class Recipe {
     // The Recipe object will be stored on each Ingredient object in a `recipe` filed.
     // `mappedBy` is the target property on the Ingredient class.
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     // Specifies that a persistent property or field should be persisted as a
     // large object to a database-supported large object type.
@@ -50,7 +53,7 @@ public class Recipe {
         joinColumns = @JoinColumn(name = "recipe_id"),
         inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -124,6 +127,12 @@ public class Recipe {
         this.difficulty = difficulty;
     }
 
+    public Recipe addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
+    }
+
     public Set<Ingredient> getIngredients() {
         return ingredients;
     }
@@ -146,6 +155,8 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        // This line is for wiring the bidirectional relationship.
+        notes.setRecipe(this);
     }
 
     public Set<Category> getCategories() {
